@@ -1,0 +1,12 @@
+FROM node:14.14.0-alpine
+WORKDIR /app
+COPY ./package.json ./
+RUN npm i typescript -g
+RUN npm i path -g
+RUN npm i --save-dev @types/express
+RUN npm i ts-node -g
+RUN npm i axios
+RUN npm i --save-dev @types/pg
+RUN npm i
+COPY . .
+CMD ["ts-node", "index.ts"]
